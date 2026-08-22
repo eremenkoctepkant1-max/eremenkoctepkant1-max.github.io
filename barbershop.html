@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BLADE — барбершоп премиум-класса: мужские стрижки, моделирование бороды, королевское бритьё. Онлайн-запись.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💈</text></svg>">
+<title>BLADE — Барбершоп в центре города</title>
+<style>
+  :root{
+    --bg:#0e0e10; --bg2:#16161a; --gold:#c8a45c; --gold2:#e3c178;
+    --text:#f3f1ec; --muted:#9b9890; --line:#2a2a30;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  section,footer{scroll-margin-top:80px}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-weight:800;letter-spacing:.5px}
+  .btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1a1a;
+    padding:14px 30px;border-radius:6px;font-weight:700;text-transform:uppercase;letter-spacing:1px;
+    font-size:14px;transition:.25s;cursor:pointer;border:none}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,164,92,.35)}
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(14,14,16,.85);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-size:24px;font-weight:900;letter-spacing:3px}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:32px}
+  .nav-links a{font-size:14px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);transition:.2s}
+  .nav-links a:hover{color:var(--gold)}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+  .burger span{width:26px;height:2px;background:var(--text)}
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;
+    background:linear-gradient(rgba(14,14,16,.78),rgba(14,14,16,.92)),
+    url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80') center/cover}
+  .hero-inner{max-width:660px}
+  .hero .tag{color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-size:14px;margin-bottom:18px}
+  .hero h1{font-size:clamp(38px,7vw,76px);line-height:1.05;margin-bottom:22px}
+  .hero p{color:var(--muted);font-size:18px;margin-bottom:34px;max-width:520px}
+  /* sections */
+  section{padding:96px 0}
+  .head{text-align:center;max-width:600px;margin:0 auto 60px}
+  .head .tag{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:13px}
+  .head h2{font-size:clamp(28px,4vw,44px);margin:12px 0}
+  .head p{color:var(--muted)}
+  /* services */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .card{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:34px;transition:.25s}
+  .card:hover{border-color:var(--gold);transform:translateY(-4px)}
+  .card .ico{font-size:34px;margin-bottom:14px}
+  .card h3{font-size:21px;margin-bottom:10px}
+  .card p{color:var(--muted);font-size:15px;margin-bottom:16px}
+  .card .price{color:var(--gold);font-size:24px;font-weight:800}
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .gallery img{width:100%;height:280px;object-fit:cover;border-radius:10px;filter:grayscale(.3);transition:.3s}
+  .gallery img:hover{filter:none;transform:scale(1.02)}
+  /* booking */
+  .booking{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:48px;
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .booking h2{font-size:34px;margin-bottom:14px}
+  .booking p{color:var(--muted);margin-bottom:10px}
+  form{display:flex;flex-direction:column;gap:14px}
+  input,select{background:var(--bg);border:1px solid var(--line);color:var(--text);
+    padding:14px 16px;border-radius:8px;font-size:15px;font-family:inherit}
+  input:focus,select:focus{outline:none;border-color:var(--gold)}
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:50px 0 30px;text-align:center;color:var(--muted)}
+  .socials{display:flex;gap:20px;justify-content:center;margin:20px 0}
+  .socials a{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
+    display:grid;place-items:center;transition:.2s}
+  .socials a:hover{background:var(--gold);color:#1a1a1a;border-color:var(--gold)}
+  .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(120px);
+    background:var(--gold);color:#1a1a1a;padding:16px 30px;border-radius:8px;font-weight:700;
+    transition:.4s;z-index:99}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  @media(max-width:820px){
+    .nav-links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;
+      gap:0;background:rgba(14,14,16,.97);border-bottom:1px solid var(--line);padding:10px 0}
+    .nav-links a{padding:14px 24px}
+    .nav-links.open{display:flex}
+    .burger{display:flex}
+    .booking{grid-template-columns:1fr;padding:30px}
+    section{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">BLA<span>DE</span></div>
+      <div class="nav-links">
+        <a href="#services">Услуги</a>
+        <a href="#gallery">Работы</a>
+        <a href="#booking">Запись</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="tag">Барбершоп премиум-класса</div>
+      <h1>Стиль, который<br>говорит за тебя</h1>
+      <p>Авторские мужские стрижки, моделирование бороды и атмосфера настоящего барбершопа. Записывайся — и выходи другим человеком.</p>
+      <a href="#booking" class="btn">Записаться онлайн</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Прайс</div>
+      <h2>Наши услуги</h2>
+      <p>У каждого мастера — минимум 5 лет опыта. Только проверенная косметика.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="ico">✂️</div><h3>Мужская стрижка</h3><p>Подбор формы под тип лица, укладка, консультация по уходу.</p><div class="price">от 1 500 ₽</div></div>
+      <div class="card"><div class="ico">🧔</div><h3>Моделирование бороды</h3><p>Контур, придание формы, горячее полотенце и уход маслами.</p><div class="price">от 1 000 ₽</div></div>
+      <div class="card"><div class="ico">💈</div><h3>Стрижка + борода</h3><p>Полный комплекс. Самый популярный выбор наших клиентов.</p><div class="price">от 2 200 ₽</div></div>
+      <div class="card"><div class="ico">🪒</div><h3>Королевское бритьё</h3><p>Опасная бритва, пар, массаж лица. Ритуал настоящего мужчины.</p><div class="price">от 1 300 ₽</div></div>
+      <div class="card"><div class="ico">👦</div><h3>Детская стрижка</h3><p>Терпеливые мастера и мультики. Для юных джентльменов до 12 лет.</p><div class="price">от 900 ₽</div></div>
+      <div class="card"><div class="ico">🎁</div><h3>Подарочный сертификат</h3><p>Лучший подарок мужчине. Номинал на любую сумму.</p><div class="price">любая сумма</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Портфолио</div>
+      <h2>Наши работы</h2>
+      <p>Стрижки и бороды, сделанные нашими мастерами.</p>
+    </div>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" alt="Мужская стрижка машинкой в барбершопе" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80" alt="Моделирование бороды опасной бритвой" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Классическая стрижка ножницами" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=600&q=80" alt="Интерьер барбершопа и рабочее место мастера" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="wrap">
+    <div class="booking">
+      <div>
+        <div class="tag" style="color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:13px">Онлайн-запись</div>
+        <h2>Запишись за минуту</h2>
+        <p>Оставь заявку — мастер перезвонит и подтвердит удобное время.</p>
+        <p style="margin-top:20px">📍 ул. Центральная, 12</p>
+        <p>🕐 Ежедневно 10:00 – 22:00</p>
+        <p>📞 <a href="tel:+79001234567" style="color:var(--gold)">+7 (900) 123-45-67</a></p>
+      </div>
+      <form onsubmit="event.preventDefault();showToast()">
+        <input type="text" name="name" placeholder="Твоё имя" required>
+        <input type="tel" name="phone" placeholder="Телефон" required>
+        <select name="service" required>
+          <option value="">Выбери услугу</option>
+          <option value="Мужская стрижка">Мужская стрижка</option>
+          <option value="Моделирование бороды">Моделирование бороды</option>
+          <option value="Стрижка + борода">Стрижка + борода</option>
+          <option value="Королевское бритьё">Королевское бритьё</option>
+          <option value="Детская стрижка">Детская стрижка</option>
+          <option value="Подарочный сертификат">Подарочный сертификат</option>
+        </select>
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);cursor:pointer">
+          <input type="checkbox" name="agree" required style="width:auto;margin-top:3px">
+          <span>Согласен на обработку персональных данных</span>
+        </label>
+        <button type="submit" class="btn">Записаться</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="logo" style="font-size:28px">BLA<span>DE</span></div>
+    <div class="socials">
+      <a href="https://t.me/" target="_blank" rel="noopener" title="Telegram">TG</a><a href="https://vk.com/" target="_blank" rel="noopener" title="ВКонтакте">VK</a><a href="https://www.youtube.com/" target="_blank" rel="noopener" title="YouTube">YT</a>
+    </div>
+    <p>© 2026 BLADE Barbershop. Все права защищены.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✓ Заявка отправлена! Мы перезвоним.</div>
+<script>
+  function showToast(){
+    const t=document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),3500);
+    document.querySelector('form').reset();
+  }
+</script>
+</body>
+</html>
