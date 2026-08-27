@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДЕНТАЛИ — стоматология в центре города</title>
+<style>
+  :root{
+    --bg:#f4f8fb;--panel:#ffffff;--ink:#12303f;--muted:#5f7787;
+    --accent:#12b3a6;--accent-d:#0e9a8f;--soft:#e3f1f0;--line:#e2eaf0;--warn:#ff7a59;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:1150px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-weight:800;line-height:1.15}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:15px 32px;border-radius:12px;
+    font-weight:700;font-size:15px;border:none;cursor:pointer;transition:.25s;box-shadow:0 8px 22px rgba(18,179,166,.28)}
+  .btn:hover{background:var(--accent-d);transform:translateY(-2px);box-shadow:0 12px 28px rgba(18,179,166,.38)}
+  .btn.ghost{background:#fff;color:var(--accent-d);border:1.5px solid var(--soft);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--accent);background:var(--soft)}
+  header{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(255,255,255,.9);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-size:22px;font-weight:900;display:flex;align-items:center;gap:8px}
+  .logo b{color:var(--accent-d)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:15px;color:var(--muted);transition:.2s}
+  .nav-links a:hover{color:var(--ink)}
+  .phone{font-weight:800;color:var(--ink)}
+  .hero{padding:150px 0 90px;background:
+    radial-gradient(ellipse at 80% 10%,var(--soft),transparent 55%),linear-gradient(180deg,#fff,var(--bg))}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .tag{display:inline-block;background:var(--soft);color:var(--accent-d);padding:8px 16px;
+    border-radius:30px;font-size:13px;font-weight:700;margin-bottom:20px}
+  .hero h1{font-size:clamp(34px,5vw,56px);margin-bottom:20px}
+  .hero h1 span{color:var(--accent-d)}
+  .hero p{color:var(--muted);font-size:18px;max-width:520px;margin-bottom:30px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px;
+    box-shadow:0 30px 60px rgba(18,48,63,.09)}
+  .hero-card h3{font-size:20px;margin-bottom:6px}
+  .hero-card .sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+  .hero-card .row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .hero-card .row:last-of-type{border:none}
+  .hero-card .row b{color:var(--accent-d)}
+  .hero-card .btn{width:100%;text-align:center;margin-top:18px}
+  .trust{display:flex;gap:44px;flex-wrap:wrap;margin-top:46px}
+  .trust .t b{display:block;font-size:34px;color:var(--accent-d)}
+  .trust .t span{color:var(--muted);font-size:14px}
+  section{padding:90px 0}
+  .head{text-align:center;max-width:600px;margin:0 auto 54px}
+  .head .tag{margin-bottom:12px}
+  .head h2{font-size:clamp(28px,4vw,42px)}
+  .head p{color:var(--muted);margin-top:12px}
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .scard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px;transition:.28s}
+  .scard:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(18,48,63,.1);border-color:var(--accent)}
+  .scard .ico{width:56px;height:56px;border-radius:14px;background:var(--soft);display:flex;
+    align-items:center;justify-content:center;font-size:28px;margin-bottom:16px}
+  .scard h3{font-size:19px;margin-bottom:8px}
+  .scard p{color:var(--muted);font-size:14px;margin-bottom:14px}
+  .scard .price{font-weight:800;color:var(--accent-d);font-size:16px}
+  .why{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+  .wcard{display:flex;gap:16px;align-items:flex-start}
+  .wcard .n{flex:none;width:44px;height:44px;border-radius:12px;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+  .wcard h3{font-size:18px;margin-bottom:4px}
+  .wcard p{color:var(--muted);font-size:14px}
+  .docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+  .doc{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.28s}
+  .doc:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(18,48,63,.1)}
+  .doc .ph{height:230px;background:var(--soft);display:flex;align-items:flex-end;justify-content:center;
+    font-size:120px;line-height:1;overflow:hidden}
+  .doc .info{padding:22px}
+  .doc h3{font-size:19px}
+  .doc .spec{color:var(--accent-d);font-size:14px;font-weight:700;margin:2px 0 8px}
+  .doc p{color:var(--muted);font-size:14px}
+  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .rev{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px}
+  .rev .stars{color:#ffb300;margin-bottom:12px;letter-spacing:3px}
+  .rev p{font-size:15px;margin-bottom:16px}
+  .rev .who{display:flex;align-items:center;gap:12px}
+  .rev .av{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800}
+  .rev .who b{display:block;font-size:15px}
+  .rev .who span{color:var(--muted);font-size:13px}
+  .cta{background:linear-gradient(135deg,var(--accent),var(--accent-d));border-radius:26px;
+    padding:60px 40px;color:#fff;display:grid;grid-template-columns:1fr .8fr;gap:40px;align-items:center}
+  .cta h2{font-size:clamp(26px,3.5vw,38px);margin-bottom:12px}
+  .cta p{opacity:.95;font-size:17px}
+  .form{background:#fff;border-radius:18px;padding:28px}
+  .form label{display:block;font-size:13px;color:var(--muted);font-weight:700;margin:0 0 6px}
+  .form input{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:10px;
+    font-size:15px;margin-bottom:16px;font-family:inherit;color:var(--ink)}
+  .form input:focus{outline:none;border-color:var(--accent)}
+  .form .btn{width:100%;text-align:center}
+  .form .note{color:var(--muted);font-size:12px;text-align:center;margin-top:12px}
+  footer{padding:50px 0 34px;color:var(--muted);border-top:1px solid var(--line);background:#fff}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:24px}
+  .foot-grid h4{color:var(--ink);margin-bottom:10px;font-size:16px}
+  .foot-grid p{font-size:14px;line-height:1.9}
+  .copy{text-align:center;border-top:1px solid var(--line);padding-top:22px;font-size:13px}
+  @media(max-width:860px){
+    .nav-links a:not(.btn){display:none}
+    .hero-grid{grid-template-columns:1fr}
+    .cta{grid-template-columns:1fr;padding:40px 26px}
+    section{padding:64px 0}
+    .hero{padding:120px 0 60px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">ДЕНТА<b>ЛИ</b></div>
+      <div class="nav-links">
+        <a href="#services">Услуги</a>
+        <a href="#why">Почему мы</a>
+        <a href="#docs">Врачи</a>
+        <a href="#contact" class="phone">+7 (900) 000-00-00</a>
+        <a href="#contact" class="btn" style="padding:10px 22px">Записаться</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="tag">🦷 Стоматология полного цикла</div>
+        <h1>Здоровая улыбка <span>без боли и страха</span></h1>
+        <p>Лечим, отбеливаем и восстанавливаем зубы на современном оборудовании. Честный план лечения и фиксированная цена — до начала работы.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Записаться на приём</a>
+          <a href="#services" class="btn ghost">Услуги и цены</a>
+        </div>
+        <div class="trust">
+          <div class="t"><b>12 лет</b><span>на рынке</span></div>
+          <div class="t"><b>9 500+</b><span>довольных пациентов</span></div>
+          <div class="t"><b>0 ₽</b><span>первичный осмотр</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Бесплатная консультация</h3>
+        <div class="sub">Осмотр, снимок и план лечения — бесплатно</div>
+        <div class="row"><span>Осмотр и диагностика</span><b>0 ₽</b></div>
+        <div class="row"><span>Лечение кариеса</span><b>от 2 900 ₽</b></div>
+        <div class="row"><span>Профессиональная чистка</span><b>от 3 500 ₽</b></div>
+        <div class="row"><span>Имплант под ключ</span><b>от 34 000 ₽</b></div>
+        <a href="#contact" class="btn">Записаться бесплатно</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Услуги</div>
+      <h2>Что мы лечим</h2>
+      <p>Полный спектр стоматологии для взрослых и детей в одной клинике.</p>
+    </div>
+    <div class="services">
+      <div class="scard"><div class="ico">🦷</div><h3>Терапия</h3><p>Лечение кариеса, пульпита и каналов под микроскопом без боли.</p><div class="price">от 2 900 ₽</div></div>
+      <div class="scard"><div class="ico">✨</div><h3>Гигиена и отбеливание</h3><p>Профессиональная чистка Air Flow и отбеливание на 4-8 тонов.</p><div class="price">от 3 500 ₽</div></div>
+      <div class="scard"><div class="ico">🔩</div><h3>Имплантация</h3><p>Восстановление зубов имплантами с гарантией. Рассрочка 0%.</p><div class="price">от 34 000 ₽</div></div>
+      <div class="scard"><div class="ico">👑</div><h3>Протезирование</h3><p>Коронки и виниры из керамики — естественно и надолго.</p><div class="price">от 16 000 ₽</div></div>
+      <div class="scard"><div class="ico">📐</div><h3>Ортодонтия</h3><p>Брекеты и элайнеры для ровного прикуса в любом возрасте.</p><div class="price">от 45 000 ₽</div></div>
+      <div class="scard"><div class="ico">🧒</div><h3>Детская стоматология</h3><p>Бережное лечение в игровой форме — без слёз и стресса.</p><div class="price">от 1 800 ₽</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="why">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Почему нам доверяют</div>
+      <h2>Спокойно за результат</h2>
+    </div>
+    <div class="why-grid">
+      <div class="wcard"><div class="n">1</div><div><h3>Цена не меняется</h3><p>Фиксируем стоимость в договоре до начала лечения. Никаких доплат «по ходу».</p></div></div>
+      <div class="wcard"><div class="n">2</div><div><h3>Без боли</h3><p>Современная анестезия и лечение во сне для тех, кто боится стоматолога.</p></div></div>
+      <div class="wcard"><div class="n">3</div><div><h3>Гарантия до 3 лет</h3><p>Даём официальную гарантию на пломбы, коронки и импланты.</p></div></div>
+      <div class="wcard"><div class="n">4</div><div><h3>Рассрочка 0%</h3><p>Дорогое лечение можно разбить на удобные платежи без переплат.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="docs">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Наша команда</div>
+      <h2>Врачи, которым не страшно довериться</h2>
+      <p>Опытные специалисты с профильным образованием и постоянным обучением.</p>
+    </div>
+    <div class="docs">
+      <div class="doc"><div class="ph">👩‍⚕️</div><div class="info"><h3>Анна Соколова</h3><div class="spec">Терапевт-стоматолог · 14 лет</div><p>Лечение под микроскопом, эстетическая реставрация.</p></div></div>
+      <div class="doc"><div class="ph">👨‍⚕️</div><div class="info"><h3>Игорь Лебедев</h3><div class="spec">Хирург-имплантолог · 11 лет</div><p>Имплантация и сложное удаление. Более 3000 операций.</p></div></div>
+      <div class="doc"><div class="ph">👩‍⚕️</div><div class="info"><h3>Мария Титова</h3><div class="spec">Ортодонт · 9 лет</div><p>Брекеты и элайнеры, исправление прикуса у детей и взрослых.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="why">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Отзывы</div>
+      <h2>Что говорят пациенты</h2>
+    </div>
+    <div class="reviews">
+      <div class="rev"><div class="stars">★★★★★</div><p>«Боялась зубного с детства. Здесь пролечила всё во сне, проснулась — готово. Цена совпала с той, что назвали сначала.»</p><div class="who"><div class="av">Е</div><div><b>Елена К.</b><span>лечение кариеса</span></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>«Поставил два импланта. Всё объяснили, сделали рассрочку. Через полгода — как родные зубы. Рекомендую.»</p><div class="who"><div class="av">Д</div><div><b>Дмитрий Р.</b><span>имплантация</span></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>«Водила ребёнка — ни одной слезинки. Врач превратила лечение в игру. Теперь сын сам просится на осмотр.»</p><div class="who"><div class="av">О</div><div><b>Ольга М.</b><span>детская стоматология</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Запишитесь на бесплатный осмотр</h2>
+        <p>Оставьте номер — администратор перезвонит в течение 15 минут, подберёт удобное время и ответит на вопросы.</p>
+      </div>
+      <form class="form" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Заявка отправлена ✓';this.querySelector('.btn').style.background='#0e9a8f';">
+        <label>Ваше имя</label>
+        <input type="text" placeholder="Как к вам обращаться" required>
+        <label>Телефон</label>
+        <input type="tel" placeholder="+7 (___) ___-__-__" required>
+        <button class="btn" type="submit">Записаться на приём</button>
+        <div class="note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="font-size:24px;margin-bottom:10px">ДЕНТА<b>ЛИ</b></div>
+        <p>Стоматология полного цикла<br>в центре города</p>
+      </div>
+      <div><h4>Контакты</h4><p>+7 (900) 000-00-00<br>info@dentali.ru<br>ул. Примерная, 12</p></div>
+      <div><h4>Режим работы</h4><p>Пн–Пт: 9:00 – 21:00<br>Сб–Вс: 10:00 – 18:00<br>Без выходных</p></div>
+    </div>
+    <div class="copy">© 2026 ДЕНТАЛИ · Демо-лендинг из портфолио · Лицензия № ЛО-00-00-000000</div>
+  </div>
+</footer>
+</body>
+</html>
