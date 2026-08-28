@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МЕДИКА — многопрофильный медицинский центр</title>
+<style>
+  :root{
+    --bg:#f2f7fd;--panel:#ffffff;--ink:#132a43;--muted:#5c718c;
+    --accent:#2f7de1;--accent-d:#2367c2;--soft:#e3eefb;--ok:#22b07d;--line:#dde8f4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:1150px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-weight:800;line-height:1.15}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:15px 32px;border-radius:12px;
+    font-weight:700;font-size:15px;border:none;cursor:pointer;transition:.25s;box-shadow:0 8px 22px rgba(47,125,225,.28)}
+  .btn:hover{background:var(--accent-d);transform:translateY(-2px);box-shadow:0 12px 28px rgba(47,125,225,.38)}
+  .btn.ghost{background:#fff;color:var(--accent-d);border:1.5px solid var(--soft);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--accent);background:var(--soft)}
+  header{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(242,247,253,.92);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-size:23px;font-weight:900;display:flex;align-items:center;gap:9px}
+  .logo .plus{width:26px;height:26px;border-radius:8px;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:18px}
+  .logo b{color:var(--accent-d)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:15px;color:var(--muted);transition:.2s}
+  .nav-links a:hover{color:var(--ink)}
+  .phone{font-weight:800;color:var(--ink)}
+  .hero{padding:150px 0 90px;background:
+    radial-gradient(ellipse at 85% 15%,var(--soft),transparent 55%),linear-gradient(180deg,#fff,var(--bg))}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .tag{display:inline-block;background:var(--soft);color:var(--accent-d);padding:8px 16px;
+    border-radius:30px;font-size:13px;font-weight:700;margin-bottom:20px}
+  .hero h1{font-size:clamp(34px,5vw,56px);margin-bottom:20px}
+  .hero h1 span{color:var(--accent-d)}
+  .hero p{color:var(--muted);font-size:18px;max-width:520px;margin-bottom:30px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px;
+    box-shadow:0 30px 60px rgba(19,42,67,.1)}
+  .hero-card h3{font-size:19px;margin-bottom:16px}
+  .hero-card .row{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:15px}
+  .hero-card .row .ck{flex:none;width:26px;height:26px;border-radius:50%;background:var(--soft);
+    color:var(--ok);display:flex;align-items:center;justify-content:center;font-weight:800}
+  .hero-card .btn{width:100%;text-align:center;margin-top:16px}
+  .trust{display:flex;gap:40px;flex-wrap:wrap;margin-top:44px}
+  .trust .t b{display:block;font-size:33px;color:var(--accent-d)}
+  .trust .t span{color:var(--muted);font-size:14px}
+  section{padding:88px 0}
+  .head{text-align:center;max-width:600px;margin:0 auto 50px}
+  .head .tag{margin-bottom:12px}
+  .head h2{font-size:clamp(28px,4vw,42px)}
+  .head p{color:var(--muted);margin-top:12px}
+  .dirs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .dir{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.28s}
+  .dir:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(19,42,67,.1);border-color:var(--accent)}
+  .dir .ico{width:56px;height:56px;border-radius:14px;background:var(--soft);display:flex;
+    align-items:center;justify-content:center;font-size:28px;margin-bottom:16px}
+  .dir h3{font-size:19px;margin-bottom:8px}
+  .dir p{color:var(--muted);font-size:14px;margin-bottom:12px}
+  .dir .price{font-weight:800;color:var(--accent-d);font-size:15px}
+  .why{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}
+  .wcard{display:flex;gap:16px;align-items:flex-start}
+  .wcard .n{flex:none;width:46px;height:46px;border-radius:12px;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:22px}
+  .wcard h3{font-size:18px;margin-bottom:4px}
+  .wcard p{color:var(--muted);font-size:14px}
+  .docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+  .doc{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.28s}
+  .doc:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(19,42,67,.1)}
+  .doc .ph{height:220px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:92px}
+  .doc .info{padding:20px}
+  .doc h3{font-size:18px}
+  .doc .spec{color:var(--accent-d);font-size:14px;font-weight:700;margin:2px 0 8px}
+  .doc p{color:var(--muted);font-size:13px}
+  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .rev{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px}
+  .rev .stars{color:#f5a623;margin-bottom:12px;letter-spacing:3px}
+  .rev p{font-size:15px;margin-bottom:16px}
+  .rev .who{display:flex;align-items:center;gap:12px}
+  .rev .av{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800}
+  .rev .who b{display:block;font-size:15px}
+  .rev .who span{color:var(--muted);font-size:13px}
+  .cta{background:linear-gradient(135deg,var(--accent),var(--accent-d));border-radius:26px;
+    padding:60px 40px;color:#fff;display:grid;grid-template-columns:1fr .8fr;gap:40px;align-items:center}
+  .cta h2{font-size:clamp(26px,3.5vw,38px);margin-bottom:12px}
+  .cta p{opacity:.95;font-size:17px}
+  .form{background:#fff;border-radius:18px;padding:28px}
+  .form label{display:block;font-size:13px;color:var(--muted);font-weight:700;margin:0 0 6px}
+  .form input{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:10px;
+    font-size:15px;margin-bottom:16px;font-family:inherit;color:var(--ink)}
+  .form input:focus{outline:none;border-color:var(--accent)}
+  .form .btn{width:100%;text-align:center}
+  .form .note{color:var(--muted);font-size:12px;text-align:center;margin-top:12px}
+  footer{padding:50px 0 34px;color:var(--muted);border-top:1px solid var(--line);background:#fff}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:24px}
+  .foot-grid h4{color:var(--ink);margin-bottom:10px;font-size:16px}
+  .foot-grid p{font-size:14px;line-height:1.9}
+  .copy{text-align:center;border-top:1px solid var(--line);padding-top:22px;font-size:13px}
+  @media(max-width:860px){
+    .nav-links a:not(.btn){display:none}
+    .hero-grid{grid-template-columns:1fr}
+    .cta{grid-template-columns:1fr;padding:40px 26px}
+    section{padding:64px 0}
+    .hero{padding:120px 0 60px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo"><span class="plus">+</span>МЕДИ<b>КА</b></div>
+      <div class="nav-links">
+        <a href="#dirs">Направления</a>
+        <a href="#why">О центре</a>
+        <a href="#docs">Врачи</a>
+        <a href="#contact" class="phone">+7 (900) 000-00-00</a>
+        <a href="#contact" class="btn" style="padding:10px 22px">Записаться</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="tag">➕ Многопрофильный медицинский центр</div>
+        <h1>Здоровье всей семьи <span>в надёжных руках</span></h1>
+        <p>Приём врачей 15 специальностей, своя лаборатория и УЗИ-диагностика в одном месте. Без очередей, по записи, с честными ценами.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Записаться на приём</a>
+          <a href="#dirs" class="btn ghost">Направления и цены</a>
+        </div>
+        <div class="trust">
+          <div class="t"><b>15 лет</b><span>работаем</span></div>
+          <div class="t"><b>40+</b><span>врачей</span></div>
+          <div class="t"><b>90 000+</b><span>пациентов</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Почему выбирают нас</h3>
+        <div class="row"><span class="ck">✓</span> Приём в день обращения</div>
+        <div class="row"><span class="ck">✓</span> Своя лаборатория — анализы на месте</div>
+        <div class="row"><span class="ck">✓</span> Врачи высшей категории</div>
+        <div class="row"><span class="ck">✓</span> Честная цена, озвученная заранее</div>
+        <a href="#contact" class="btn">Бесплатная консультация</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dirs">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Направления</div>
+      <h2>Что мы лечим</h2>
+      <p>Полный спектр медицинской помощи для взрослых и детей.</p>
+    </div>
+    <div class="dirs">
+      <div class="dir"><div class="ico">🩺</div><h3>Терапия</h3><p>Диагностика и лечение, вызов врача на дом.</p><div class="price">от 1 500 ₽</div></div>
+      <div class="dir"><div class="ico">❤️</div><h3>Кардиология</h3><p>ЭКГ, УЗИ сердца, наблюдение и профилактика.</p><div class="price">от 2 200 ₽</div></div>
+      <div class="dir"><div class="ico">🧠</div><h3>Неврология</h3><p>Головные боли, бессонница, боли в спине.</p><div class="price">от 2 000 ₽</div></div>
+      <div class="dir"><div class="ico">👶</div><h3>Педиатрия</h3><p>Ведение детей, прививки, справки в сад и школу.</p><div class="price">от 1 600 ₽</div></div>
+      <div class="dir"><div class="ico">👩‍⚕️</div><h3>Гинекология</h3><p>Осмотр, УЗИ, ведение беременности.</p><div class="price">от 1 800 ₽</div></div>
+      <div class="dir"><div class="ico">🔬</div><h3>Анализы и УЗИ</h3><p>Своя лаборатория, результаты онлайн за сутки.</p><div class="price">от 400 ₽</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="why">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Почему нам доверяют</div>
+      <h2>Медицина, которой не страшно</h2>
+    </div>
+    <div class="why-grid">
+      <div class="wcard"><div class="n">🏥</div><div><h3>Всё в одном месте</h3><p>Врачи, анализы и диагностика под одной крышей — не нужно ездить по городу.</p></div></div>
+      <div class="wcard"><div class="n">⏱️</div><div><h3>Без очередей</h3><p>Приём строго по записи, в удобное для вас время, включая выходные.</p></div></div>
+      <div class="wcard"><div class="n">💬</div><div><h3>Честно и понятно</h3><p>Врач объяснит диагноз простым языком и назовёт цену до начала лечения.</p></div></div>
+      <div class="wcard"><div class="n">📋</div><div><h3>Лицензия и опыт</h3><p>Официальная лицензия, врачи высшей категории и современное оборудование.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="docs">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Наши врачи</div>
+      <h2>Специалисты, которым доверяют здоровье</h2>
+      <p>Опытные врачи с профильным образованием и постоянной практикой.</p>
+    </div>
+    <div class="docs">
+      <div class="doc"><div class="ph">👨‍⚕️</div><div class="info"><h3>Сергей Волков</h3><div class="spec">Терапевт-кардиолог · 18 лет</div><p>Кандидат медицинских наук.</p></div></div>
+      <div class="doc"><div class="ph">👩‍⚕️</div><div class="info"><h3>Наталья Зайцева</h3><div class="spec">Невролог · 14 лет</div><p>Лечение боли и головокружений.</p></div></div>
+      <div class="doc"><div class="ph">👩‍⚕️</div><div class="info"><h3>Ольга Морозова</h3><div class="spec">Педиатр · 12 лет</div><p>Бережный подход к детям любого возраста.</p></div></div>
+      <div class="doc"><div class="ph">👨‍⚕️</div><div class="info"><h3>Артур Гасанов</h3><div class="spec">Врач УЗИ-диагностики · 11 лет</div><p>Экспертное УЗИ на аппарате премиум-класса.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="why">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Отзывы</div>
+      <h2>Что говорят пациенты</h2>
+    </div>
+    <div class="reviews">
+      <div class="rev"><div class="stars">★★★★★</div><p>«Записалась утром — приняли в тот же день. Все анализы сдала на месте, результаты пришли на почту. Очень удобно.»</p><div class="who"><div class="av">И</div><div><b>Ирина П.</b><span>терапия</span></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>«Вожу ребёнка только сюда. Педиатр внимательная, без спешки, всё подробно объясняет. Сын врачей больше не боится.»</p><div class="who"><div class="av">М</div><div><b>Марина Д.</b><span>педиатрия</span></div></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>«Наконец нашёл центр, где не разводят на лишние обследования. Цену назвали сразу, всё честно. Рекомендую.»</p><div class="who"><div class="av">А</div><div><b>Алексей Р.</b><span>кардиология</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Запишитесь на приём онлайн</h2>
+        <p>Оставьте номер — администратор перезвонит в течение 15 минут, подберёт врача и удобное время.</p>
+      </div>
+      <form class="form" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Заявка отправлена ✓';this.querySelector('.btn').style.background='#2367c2';">
+        <label>Ваше имя</label>
+        <input type="text" placeholder="Как к вам обращаться" required>
+        <label>Телефон</label>
+        <input type="tel" placeholder="+7 (___) ___-__-__" required>
+        <button class="btn" type="submit">Записаться на приём</button>
+        <div class="note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="font-size:24px;margin-bottom:10px"><span class="plus">+</span>МЕДИ<b>КА</b></div>
+        <p>Многопрофильный<br>медицинский центр</p>
+      </div>
+      <div><h4>Контакты</h4><p>+7 (900) 000-00-00<br>info@medika.ru<br>ул. Примерная, 25</p></div>
+      <div><h4>Режим работы</h4><p>Пн–Вс: 8:00 – 21:00<br>Без выходных<br>Лаборатория с 7:30</p></div>
+    </div>
+    <div class="copy">© 2026 МЕДИКА · Демо-лендинг из портфолио · Лицензия № ЛО-00-00-000000</div>
+  </div>
+</footer>
+</body>
+</html>
