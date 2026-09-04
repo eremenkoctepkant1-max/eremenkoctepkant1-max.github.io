@@ -107,6 +107,15 @@ footer{padding:44px 0 30px;text-align:center;color:var(--muted);border-top:1px s
 .foot-contact{margin:14px 0;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
 .foot-contact a{color:var(--fire2);font-weight:600}
 .foot-contact a:hover{color:var(--text)}
+.faq{max-width:760px;margin:0 auto}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq details[open]{border-color:var(--fire)}
+.faq summary{padding:20px 24px;font-weight:700;font-size:16px;cursor:pointer;list-style:none;
+display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--fire2);font-size:24px;font-weight:900;transition:.2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 20px;color:var(--muted);font-size:15px}
 @media(max-width:820px){.nav-links a:not(.nav-cta){display:none}section{padding:64px 0}.trust{gap:26px}}
 </style>
 </head>
@@ -119,6 +128,7 @@ footer{padding:44px 0 30px;text-align:center;color:var(--muted);border-top:1px s
 <a href="#why">Почему я</a>
 <a href="#who">Кому</a>
 <a href="#plans">Тарифы</a>
+<a href="#faq">Вопросы</a>
 <a href="#contact" class="btn nav-cta" style="padding:10px 20px">Обсудить</a>
 </div>
 </nav>
@@ -263,6 +273,42 @@ footer{padding:44px 0 30px;text-align:center;color:var(--muted);border-top:1px s
 </ul>
 <a href="https://t.me/Svarnoy87" target="_blank" rel="noopener" class="btn ghost">Хочу под ключ</a>
 </div>
+</div>
+</div>
+</section>
+
+<section id="faq" class="why">
+<div class="wrap">
+<div class="head">
+<div class="tag">Частые вопросы</div>
+<h2>Отвечаю по-честному</h2>
+<p>То, что чаще всего спрашивают мастера перед тем, как заказать сайт.</p>
+</div>
+<div class="faq">
+<details open>
+<summary>Зачем мне сайт, у меня и так заказы через сарафан?</summary>
+<div class="ans">Сарафан — это отлично, но он ограничен. А сайт работает круглосуточно и приводит новых клиентов, которые прямо сейчас ищут в интернете «сварщик рядом» или «сварочные работы недорого». Сарафан + сайт = заказов заметно больше.</div>
+</details>
+<details>
+<summary>Я не разбираюсь в интернете, справлюсь ли?</summary>
+<div class="ans">Тебе ничего сложного делать не надо. Заявки с сайта падают тебе прямо в Telegram — как обычные сообщения. Открыл, прочитал, позвонил клиенту. Всё остальное настрою я.</div>
+</details>
+<details>
+<summary>Сколько стоит и не будет ли доплат в конце?</summary>
+<div class="ans">Цену называю сразу и фиксирую. Сколько договорились — столько и заплатишь, без «а это отдельно» в конце. По-честному, как у мастеров принято.</div>
+</details>
+<details>
+<summary>Как быстро сделаешь?</summary>
+<div class="ans">Простой сайт-визитку — за 2–3 дня, продающий лендинг — за 4–6 дней. Мастер знает цену времени и не тянет.</div>
+</details>
+<details>
+<summary>У меня нет фото работ и текстов — что делать?</summary>
+<div class="ans">Не проблема. Подскажу, что и как сфотографировать, а тексты для сайта напишу сам — расскажешь мне про свои работы обычными словами, а я оформлю красиво и продающе.</div>
+</details>
+<details>
+<summary>А если потом захочу что-то поменять?</summary>
+<div class="ans">Спокойно поменяем. Правки по текстам, ценам, добавить блок или услугу — это обычное дело. Напишешь в Telegram, я поправлю.</div>
+</details>
 </div>
 </div>
 </section>
