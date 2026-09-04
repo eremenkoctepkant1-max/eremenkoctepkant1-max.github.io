@@ -44,6 +44,8 @@ nav{display:flex;align-items:center;justify-content:space-between;height:68px}
 .nav-links{display:flex;gap:24px;align-items:center}
 .nav-links a{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;transition:.2s}
 .nav-links a:hover{color:var(--text)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--text);border-radius:2px}
 .hero{position:relative;min-height:96vh;display:flex;align-items:center;
 background:linear-gradient(rgba(15,16,18,.72),rgba(15,16,18,.92)),url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=80');
 background-size:cover;background-position:center}
@@ -104,7 +106,14 @@ footer{padding:42px 0 30px;text-align:center;color:var(--muted);border-top:1px s
 .foot-contact{margin:14px 0;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
 .foot-contact a{color:var(--fire2);font-weight:600}
 .foot-contact a:hover{color:var(--text)}
-@media(max-width:820px){.nav-links a:not(.nav-cta){display:none}section{padding:60px 0}.trust{gap:24px}}
+@media(max-width:820px){
+.nav-links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;
+gap:0;background:rgba(15,16,18,.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:8px 0}
+.nav-links.open{display:flex}
+.nav-links a{padding:13px 24px;font-size:15px}
+.nav-links a.nav-cta{margin:8px 24px;text-align:center}
+.burger{display:flex}
+section{padding:60px 0}.trust{gap:24px}}
 </style>
 </head>
 <body>
@@ -112,12 +121,13 @@ footer{padding:42px 0 30px;text-align:center;color:var(--muted);border-top:1px s
 <div class="wrap">
 <nav>
 <div class="logo">SVARNOY<span> · сварка</span></div>
-<div class="nav-links">
+<div class="nav-links" onclick="this.classList.remove('open')">
 <a href="#services">Услуги</a>
 <a href="#why">Почему я</a>
 <a href="#faq">Вопросы</a>
 <a href="#contact" class="btn nav-cta" style="padding:10px 20px">Заказать</a>
 </div>
+<div class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></div>
 </nav>
 </div>
 </header>
