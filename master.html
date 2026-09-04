@@ -44,6 +44,8 @@ nav{display:flex;align-items:center;justify-content:space-between;height:70px}
 .nav-links{display:flex;gap:26px;align-items:center}
 .nav-links a{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;transition:.2s}
 .nav-links a:hover{color:var(--text)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--text);border-radius:2px}
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;
 background:radial-gradient(ellipse at 70% 20%,rgba(255,106,0,.18),transparent 55%),var(--bg)}
 .hero .tag{display:inline-block;background:var(--panel);border:1px solid var(--line);
@@ -116,7 +118,14 @@ display:flex;justify-content:space-between;align-items:center;gap:14px}
 .faq summary::after{content:"+";color:var(--fire2);font-size:24px;font-weight:900;transition:.2s}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .ans{padding:0 24px 20px;color:var(--muted);font-size:15px}
-@media(max-width:820px){.nav-links a:not(.nav-cta){display:none}section{padding:64px 0}.trust{gap:26px}}
+@media(max-width:820px){
+.nav-links{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;
+gap:0;background:rgba(17,18,20,.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:8px 0}
+.nav-links.open{display:flex}
+.nav-links a{padding:13px 24px;font-size:15px}
+.nav-links a.nav-cta{margin:8px 24px;text-align:center}
+.burger{display:flex}
+section{padding:64px 0}.trust{gap:26px}}
 </style>
 </head>
 <body>
@@ -124,13 +133,14 @@ display:flex;justify-content:space-between;align-items:center;gap:14px}
 <div class="wrap">
 <nav>
 <div class="logo">SVARNOY<span>.WEB</span></div>
-<div class="nav-links">
+<div class="nav-links" onclick="this.classList.remove('open')">
 <a href="#why">Почему я</a>
 <a href="#who">Кому</a>
 <a href="#plans">Тарифы</a>
 <a href="#faq">Вопросы</a>
 <a href="#contact" class="btn nav-cta" style="padding:10px 20px">Обсудить</a>
 </div>
+<div class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></div>
 </nav>
 </div>
 </header>

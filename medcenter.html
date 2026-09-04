@@ -44,6 +44,8 @@
   .nav-links{display:flex;gap:26px;align-items:center}
   .nav-links a{font-size:15px;color:var(--muted);transition:.2s}
   .nav-links a:hover{color:var(--ink)}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+  .burger span{width:26px;height:2px;background:var(--ink);border-radius:2px}
   .phone{font-weight:800;color:var(--ink)}
   .hero{padding:150px 0 90px;background:
     radial-gradient(ellipse at 85% 15%,var(--soft),transparent 55%),linear-gradient(180deg,#fff,var(--bg))}
@@ -118,7 +120,12 @@
   .foot-grid p{font-size:14px;line-height:1.9}
   .copy{text-align:center;border-top:1px solid var(--line);padding-top:22px;font-size:13px}
   @media(max-width:860px){
-    .nav-links a:not(.btn){display:none}
+    .nav-links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;
+      gap:0;background:rgba(242,247,253,.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:8px 0}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:13px 24px;font-size:16px}
+    .nav-links a.btn{margin:8px 24px;text-align:center}
+    .burger{display:flex}
     .hero-grid{grid-template-columns:1fr}
     .cta{grid-template-columns:1fr;padding:40px 26px}
     section{padding:64px 0}
@@ -131,13 +138,14 @@
   <div class="wrap">
     <nav>
       <div class="logo"><span class="plus">+</span>МЕДИ<b>КА</b></div>
-      <div class="nav-links">
+      <div class="nav-links" onclick="this.classList.remove('open')">
         <a href="#dirs">Направления</a>
         <a href="#why">О центре</a>
         <a href="#docs">Врачи</a>
         <a href="#contact" class="phone">+7 (900) 000-00-00</a>
         <a href="#contact" class="btn" style="padding:10px 22px">Записаться</a>
       </div>
+      <div class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></div>
     </nav>
   </div>
 </header>

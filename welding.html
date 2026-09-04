@@ -44,6 +44,8 @@ nav{display:flex;align-items:center;justify-content:space-between;height:66px}
 .nav-links{display:flex;gap:24px;align-items:center}
 .nav-links a{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;transition:.2s}
 .nav-links a:hover{color:var(--text)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--text);border-radius:2px}
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;
 background:linear-gradient(rgba(15,16,18,.74),rgba(15,16,18,.94)),url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=80');
 background-size:cover;background-position:center}
@@ -102,7 +104,14 @@ display:flex;justify-content:space-between;align-items:center;gap:14px}
 .faq summary::after{content:"+";color:var(--fire2);font-size:24px;font-weight:900;transition:.2s}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .ans{padding:0 24px 20px;color:var(--muted);font-size:15px}
-@media(max-width:820px){.nav-links a:not(.nav-cta){display:none}section{padding:58px 0}.hero-inner{gap:28px}.avatar{width:130px;height:130px;font-size:52px}}
+@media(max-width:820px){
+.nav-links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;
+gap:0;background:rgba(15,16,18,.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:8px 0}
+.nav-links.open{display:flex}
+.nav-links a{padding:13px 22px;font-size:15px}
+.nav-links a.nav-cta{margin:8px 22px;text-align:center}
+.burger{display:flex}
+section{padding:58px 0}.hero-inner{gap:28px}.avatar{width:130px;height:130px;font-size:52px}}
 </style>
 </head>
 <body>
@@ -110,13 +119,14 @@ display:flex;justify-content:space-between;align-items:center;gap:14px}
 <div class="wrap">
 <nav>
 <div class="logo">СТЕПАН <span>· сварка</span></div>
-<div class="nav-links">
+<div class="nav-links" onclick="this.classList.remove('open')">
 <a href="#about">Обо мне</a>
 <a href="#help">Чем помогу</a>
 <a href="#creed">Принципы</a>
 <a href="#faq">Вопросы</a>
 <a href="#contact" class="btn nav-cta" style="padding:10px 18px">Написать</a>
 </div>
+<div class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></div>
 </nav>
 </div>
 </header>
