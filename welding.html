@@ -93,6 +93,15 @@ footer{padding:40px 0 28px;text-align:center;color:var(--muted);border-top:1px s
 .foot-contact{margin:14px 0;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
 .foot-contact a{color:var(--fire2);font-weight:600}
 .foot-contact a:hover{color:var(--text)}
+.faq{max-width:760px;margin:0 auto}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq details[open]{border-color:var(--fire)}
+.faq summary{padding:20px 24px;font-weight:700;font-size:16px;cursor:pointer;list-style:none;
+display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--fire2);font-size:24px;font-weight:900;transition:.2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 20px;color:var(--muted);font-size:15px}
 @media(max-width:820px){.nav-links a:not(.nav-cta){display:none}section{padding:58px 0}.hero-inner{gap:28px}.avatar{width:130px;height:130px;font-size:52px}}
 </style>
 </head>
@@ -105,6 +114,7 @@ footer{padding:40px 0 28px;text-align:center;color:var(--muted);border-top:1px s
 <a href="#about">Обо мне</a>
 <a href="#help">Чем помогу</a>
 <a href="#creed">Принципы</a>
+<a href="#faq">Вопросы</a>
 <a href="#contact" class="btn nav-cta" style="padding:10px 18px">Написать</a>
 </div>
 </nav>
@@ -183,6 +193,37 @@ footer{padding:40px 0 28px;text-align:center;color:var(--muted);border-top:1px s
 <div class="cline"><span class="n">2</span><p><b>Объясняю по-человечески.</b> Без заумных терминов. Расскажу десять раз по-разному, пока не «щёлкнет».</p></div>
 <div class="cline"><span class="n">3</span><p><b>Учу чувствовать.</b> Сварка — это руки, звук и глаз. Я передаю не схему, а ощущение.</p></div>
 <div class="cline"><span class="n">4</span><p><b>Уважаю твоё время.</b> Не лью воду, говорю по делу — чтобы ты рос быстрее.</p></div>
+</div>
+</div>
+</section>
+
+<section id="faq" class="alt">
+<div class="wrap">
+<div class="head">
+<div class="tag">Частые вопросы</div>
+<h2>Коротко и по делу</h2>
+</div>
+<div class="faq">
+<details open>
+<summary>Можно научиться сварке с нуля?</summary>
+<div class="ans">Да. Если есть желание и руки на месте — научу. Начнём с базы: как держать держак, видеть ванну, читать шов. Дальше — по нарастающей, в твоём темпе.</div>
+</details>
+<details>
+<summary>Как проходит консультация?</summary>
+<div class="ans">Как удобнее тебе: по видеосвязи, по фото/видео твоих швов или очно. Ты показываешь задачу или проблему — я разбираю, объясняю и даю конкретные шаги.</div>
+</details>
+<details>
+<summary>Сколько стоит?</summary>
+<div class="ans">Зависит от формата и объёма — разовая консультация или наставничество на несколько занятий. Напиши в Telegram, расскажи задачу — обсудим по-честному.</div>
+</details>
+<details>
+<summary>Реально чему-то научить онлайн?</summary>
+<div class="ans">Технику и понимание — да, отлично. Многое видно по видео шва и по тому, как человек работает. А чутьё приходит с практикой, которую я направлю в нужную сторону.</div>
+</details>
+<details>
+<summary>Помогаешь подготовиться к аттестации?</summary>
+<div class="ans">Да. Подтянем теорию и практику, разберём типовые требования и частые ошибки, чтобы ты пришёл уверенно.</div>
+</details>
 </div>
 </div>
 </section>
