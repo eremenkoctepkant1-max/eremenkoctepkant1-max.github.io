@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ФИКСЛАБ — ремонт телефонов, ноутбуков и телевизоров. Бесплатная диагностика, цена до ремонта, большинство работ в день обращения.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
+<title>ФИКСЛАБ — ремонт телефонов, ноутбуков и ТВ</title>
+<meta name="theme-color" content="#2f81f7">
+<link rel="canonical" href="https://eremenkoctepkant1-max.github.io/repair.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ФИКСЛАБ — ремонт телефонов, ноутбуков и ТВ">
+<meta property="og:description" content="Бесплатная диагностика, цена до ремонта, большинство работ в день обращения.">
+<meta property="og:url" content="https://eremenkoctepkant1-max.github.io/repair.html">
+<meta property="og:locale" content="ru_RU">
+<style>
+  :root{
+    --bg:#0b1220;--panel:#121b2e;--accent:#2f81f7;--accent2:#22c3ee;
+    --text:#e8eef7;--muted:#8e9bb0;--line:#1f2a40;--ok:#2ecc71;--wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  section,footer{scroll-margin-top:80px}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-weight:800}
+  .btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;
+    padding:15px 30px;border-radius:10px;font-weight:700;font-size:15px;border:none;cursor:pointer;transition:.25s;font-family:inherit}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(47,129,247,.4)}
+  .btn.wa{background:var(--wa);color:#06230f}
+  .btn.wa:hover{box-shadow:0 10px 28px rgba(37,211,102,.35)}
+  .btn.ghost{background:transparent;border:2px solid var(--line);color:var(--text)}
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,18,32,.9);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{font-size:24px;font-weight:900;letter-spacing:1px}
+  .logo span{color:var(--accent2)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--muted);transition:.2s}
+  .nav-links a:hover{color:var(--accent2)}
+  .nav-links .phone-top{color:var(--text);font-weight:700;font-size:16px}
+  .phone-mobile{display:none;color:var(--text);font-weight:700;font-size:15px;margin-right:16px}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+  .burger span{width:26px;height:2px;background:var(--text)}
+  .hero{min-height:100vh;display:flex;align-items:center;padding-top:74px;
+    background:radial-gradient(900px 500px at 85% 30%,rgba(34,195,238,.18),transparent 60%),
+    radial-gradient(700px 500px at 10% 90%,rgba(47,129,247,.16),transparent 60%),var(--bg)}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+  .hero .tag{color:var(--accent2);text-transform:uppercase;letter-spacing:3px;font-size:13px;font-weight:700;margin-bottom:16px}
+  .hero h1{font-size:clamp(36px,5.6vw,64px);line-height:1.07;margin-bottom:20px}
+  .hero h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);font-size:18px;margin-bottom:30px;max-width:520px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .badges{display:flex;gap:30px;margin-top:38px;flex-wrap:wrap}
+  .badge b{display:block;font-size:30px;color:var(--accent2)}
+  .badge span{color:var(--muted);font-size:14px}
+  .phone-art{justify-self:center;width:250px;height:470px;border-radius:40px;border:3px solid #2a3957;
+    background:linear-gradient(160deg,#16223a,#0e1627);position:relative;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .phone-art::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:80px;height:20px;border-radius:12px;background:#0b1220}
+  .crack{position:absolute;inset:50px 20px 60px;border-radius:18px;
+    background:linear-gradient(135deg,rgba(47,129,247,.25),rgba(34,195,238,.08));overflow:hidden}
+  .crack svg{width:100%;height:100%}
+  .fix-chip{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);white-space:nowrap;
+    background:var(--ok);color:#062a14;font-weight:800;padding:10px 18px;border-radius:30px;font-size:14px}
+  section{padding:92px 0}
+  .head{text-align:center;max-width:620px;margin:0 auto 52px}
+  .head .tag{color:var(--accent2);text-transform:uppercase;letter-spacing:3px;font-size:13px;font-weight:700}
+  .head h2{font-size:clamp(28px,4vw,42px);margin:12px 0}
+  .head p{color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;transition:.25s}
+  .card:hover{border-color:var(--accent);transform:translateY(-4px)}
+  .card .ico{font-size:34px;margin-bottom:12px}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:14px;margin-bottom:14px}
+  .card .price{color:var(--accent2);font-weight:800;font-size:18px}
+  .calc{background:linear-gradient(135deg,#131e34,var(--panel));border:1px solid var(--line);border-radius:20px;
+    padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .calc h2{font-size:32px;margin-bottom:10px}
+  .calc p{color:var(--muted)}
+  .calc-form{display:flex;flex-direction:column;gap:13px}
+  .result{margin-top:6px;background:var(--bg);border:1px dashed var(--accent);border-radius:12px;padding:18px;text-align:center}
+  .result b{display:block;font-size:30px;color:var(--accent2)}
+  .result span{color:var(--muted);font-size:14px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;counter-reset:s}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
+  .step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:16px;right:20px;
+    font-size:42px;font-weight:900;color:rgba(47,129,247,.25)}
+  .step h3{font-size:18px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:14px}
+  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .review{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .review .stars{color:#f5b301;letter-spacing:2px;margin-bottom:10px}
+  .review p{color:var(--text);font-size:15px;margin-bottom:12px}
+  .review small{color:var(--muted)}
+  .cta{background:linear-gradient(135deg,#131e34,var(--panel));border:1px solid var(--line);
+    border-radius:20px;padding:48px;display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+  .cta h2{font-size:32px;margin-bottom:12px}
+  .cta p{color:var(--muted);margin-bottom:8px}
+  .check{display:flex;align-items:center;gap:10px;margin:8px 0}
+  .check span{color:var(--ok);font-weight:900}
+  form{display:flex;flex-direction:column;gap:13px}
+  input,select{background:var(--bg);border:1px solid var(--line);color:var(--text);
+    padding:14px 16px;border-radius:10px;font-size:15px;font-family:inherit;width:100%}
+  input:focus,select:focus{outline:none;border-color:var(--accent)}
+  footer{border-top:1px solid var(--line);padding:44px 0 28px;text-align:center;color:var(--muted)}
+  .demo-note{margin-top:10px;font-size:13px}
+  .demo-note a{color:var(--accent2)}
+  .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(140px);
+    background:var(--ok);color:#062a14;padding:16px 30px;border-radius:10px;font-weight:700;transition:.4s;z-index:99;text-align:center}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  @media(max-width:860px){
+    .nav-links{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;
+      gap:0;background:rgba(11,18,32,.97);border-bottom:1px solid var(--line);padding:10px 0;align-items:stretch;text-align:center}
+    .nav-links a{padding:13px 24px}
+    .nav-links.open{display:flex}
+    .burger{display:flex}
+    .phone-mobile{display:inline-block}
+    .hero-grid,.calc,.cta{grid-template-columns:1fr}
+    .phone-art{display:none}
+    .calc,.cta{padding:28px}
+    section{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">ФИКС<span>ЛАБ</span></div>
+      <div class="nav-links">
+        <a href="#services">Ремонт</a>
+        <a href="#price">Узнать цену</a>
+        <a href="#how">Как работаем</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="tel:+79001234567" class="phone-top">+7 (900) 123-45-67</a>
+      </div>
+      <div style="display:flex;align-items:center">
+        <a href="tel:+79001234567" class="phone-mobile">+7 (900) 123-45-67</a>
+        <div class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="tag">Сервисный центр · телефоны · ноутбуки · ТВ</div>
+      <h1>Разбили экран? <span>Скажем цену до ремонта</span></h1>
+      <p>Бесплатная диагностика, цена до начала работ и гарантия. Большинство ремонтов — в день обращения, пока вы пьёте кофе рядом.</p>
+      <div class="hero-actions">
+        <a href="#price" class="btn">Узнать цену за минуту</a>
+        <a href="#cta" class="btn wa">Написать в WhatsApp</a>
+      </div>
+      <div class="badges">
+        <div class="badge"><b>от 40 мин</b><span>замена экрана</span></div>
+        <div class="badge"><b>0 ₽</b><span>диагностика</span></div>
+        <div class="badge"><b>до 1 года</b><span>гарантии</span></div>
+      </div>
+    </div>
+    <div class="phone-art" aria-hidden="true">
+      <div class="crack">
+        <svg viewBox="0 0 200 360" fill="none" stroke="rgba(232,238,247,.55)" stroke-width="1.6">
+          <path d="M120 40 L100 120 L140 170 L90 230 L110 320"/><path d="M100 120 L40 150"/><path d="M140 170 L185 190"/>
+          <path d="M90 230 L30 260"/><path d="M100 120 L130 90 L170 100"/>
+        </svg>
+      </div>
+      <div class="fix-chip">✓ Будет как новый сегодня</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Ремонт</div>
+      <h2>Что чиним</h2>
+      <p>Телефоны, планшеты, ноутбуки, телевизоры и фототехнику. Запчасти в наличии — не ждём неделями.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="ico">📱</div><h3>Замена экрана</h3><p>Оригинал или качественный аналог — на выбор, с разницей в цене.</p><div class="price">от 1 900 ₽</div></div>
+      <div class="card"><div class="ico">🔋</div><h3>Замена аккумулятора</h3><p>Телефон снова держит день, а не до обеда.</p><div class="price">от 1 200 ₽</div></div>
+      <div class="card"><div class="ico">🔌</div><h3>Разъём зарядки</h3><p>Не заряжается, болтается кабель, заряжает «через раз».</p><div class="price">от 900 ₽</div></div>
+      <div class="card"><div class="ico">💧</div><h3>После воды</h3><p>Чистка платы и восстановление. Чем раньше принесёте — тем больше шансов.</p><div class="price">от 1 500 ₽</div></div>
+      <div class="card"><div class="ico">💻</div><h3>Ноутбуки</h3><p>Чистка от пыли, замена матрицы и клавиатуры, перегрев, не включается.</p><div class="price">от 1 500 ₽</div></div>
+      <div class="card"><div class="ico">📺</div><h3>Телевизоры</h3><p>Подсветка, блок питания, нет изображения. Выезд мастера на дом.</p><div class="price">от 2 000 ₽</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <div class="calc">
+      <div>
+        <h2>Сколько стоит ремонт?</h2>
+        <p>Выберите устройство и проблему — покажем ориентировочную цену. Точную назовёт мастер после бесплатной диагностики, до начала работ.</p>
+      </div>
+      <div class="calc-form">
+        <select id="dev" onchange="fillIssues();calc()">
+          <option value="phone">Смартфон</option>
+          <option value="laptop">Ноутбук</option>
+          <option value="tv">Телевизор</option>
+        </select>
+        <select id="issue" onchange="calc()"></select>
+        <div class="result"><b id="res">—</b><span id="time">выберите проблему</span></div>
+        <a href="#cta" class="btn" style="text-align:center">Записаться на ремонт</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Процесс</div>
+      <h2>Как мы работаем</h2>
+      <p>Без «потом посмотрим» и доплат в конце.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Пишете или приносите</h3><p>Модель и что случилось. Можно прислать фото в WhatsApp.</p></div>
+      <div class="step"><h3>Бесплатная диагностика</h3><p>Находим причину за 15–30 минут.</p></div>
+      <div class="step"><h3>Цена до ремонта</h3><p>Называем сумму и срок. Работаем только после вашего «да».</p></div>
+      <div class="step"><h3>Забираете с гарантией</h3><p>Проверяете при нас, получаете гарантийный талон.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Отзывы</div>
+      <h2>Что говорят клиенты</h2>
+      <p>Блок для настоящих отзывов с 2ГИС и Яндекс Карт — на демо-сайте показано, как он будет выглядеть.</p>
+    </div>
+    <div class="reviews">
+      <div class="review"><div class="stars">★★★★★</div><p>Здесь будет отзыв клиента с 2ГИС: что чинили, как быстро, понравилось ли.</p><small>Имя клиента · дата</small></div>
+      <div class="review"><div class="stars">★★★★★</div><p>Настоящие отзывы переносим с карт с разрешения — они убеждают лучше любых слов.</p><small>Имя клиента · дата</small></div>
+      <div class="review"><div class="stars">★★★★★</div><p>Можно добавить кнопку «Все отзывы в 2ГИС», чтобы человек сам убедился.</p><small>Имя клиента · дата</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Запишитесь на ремонт</h2>
+        <p>Оставьте заявку — мастер перезвонит в течение 15 минут в рабочее время.</p>
+        <div style="margin-top:20px">
+          <div class="check"><span>✓</span> Диагностика бесплатно</div>
+          <div class="check"><span>✓</span> Цена до начала работ</div>
+          <div class="check"><span>✓</span> Гарантия до 1 года</div>
+          <div class="check"><span>✓</span> Большинство ремонтов — в тот же день</div>
+        </div>
+      </div>
+      <form onsubmit="event.preventDefault();showToast()">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="Телефон" required>
+        <input type="text" name="model" placeholder="Модель устройства">
+        <select name="problem" required>
+          <option value="">Что случилось?</option>
+          <option>Разбит экран</option>
+          <option>Не заряжается</option>
+          <option>Быстро садится</option>
+          <option>Попала вода</option>
+          <option>Другое</option>
+        </select>
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);cursor:pointer">
+          <input type="checkbox" name="agree" required style="width:auto;margin-top:3px">
+          <span>Согласен на обработку персональных данных</span>
+        </label>
+        <button type="submit" class="btn">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo" style="font-size:28px">ФИКС<span>ЛАБ</span></div>
+    <p style="margin:14px 0">📍 ул. Мастеров, 12 · 🕐 Пн–Сб 10:00–20:00 · 📞 <a href="tel:+79001234567" style="color:var(--text)">+7 (900) 123-45-67</a></p>
+    <p>© 2026 ФИКСЛАБ</p>
+    <p class="demo-note">Демо-сайт из портфолио — <a href="index.html">Степан Ерёменко, сайты и тексты для бизнеса</a></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✓ Заявка принята! Мастер перезвонит в течение 15 минут.</div>
+<script>
+  const PRICES = {
+    phone: [["Разбит экран", "от 1 900 ₽", "от 40 минут"], ["Не заряжается", "от 900 ₽", "от 30 минут"],
+            ["Быстро садится батарея", "от 1 200 ₽", "от 30 минут"], ["Попала вода", "от 1 500 ₽", "1–2 дня"],
+            ["Не слышно собеседника", "от 800 ₽", "от 40 минут"]],
+    laptop: [["Греется и шумит", "от 1 500 ₽", "в тот же день"], ["Разбита матрица", "от 3 500 ₽", "1–2 дня"],
+             ["Не работает клавиатура", "от 2 000 ₽", "1–2 дня"], ["Не включается", "от 1 800 ₽", "после диагностики"]],
+    tv: [["Нет изображения, есть звук", "от 2 500 ₽", "1–3 дня"], ["Не включается", "от 2 000 ₽", "после диагностики"],
+         ["Полосы на экране", "от 3 000 ₽", "после диагностики"]]
+  };
+  function fillIssues(){
+    const s = document.getElementById('issue');
+    s.innerHTML = PRICES[document.getElementById('dev').value].map((p,i)=>`<option value="${i}">${p[0]}</option>`).join('');
+  }
+  function calc(){
+    const dev = document.getElementById('dev').value;
+    const p = PRICES[dev][+document.getElementById('issue').value || 0];
+    document.getElementById('res').textContent = p[1];
+    document.getElementById('time').textContent = 'срок: ' + p[2];
+  }
+  fillIssues(); calc();
+  function showToast(){
+    const t=document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),3500);
+    document.querySelector('#cta form').reset();
+  }
+</script>
+</body>
+</html>
